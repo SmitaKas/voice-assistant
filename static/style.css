@@ -1,159 +1,289 @@
 /* === THEME STYLES === */
 body.light-mode {
-    background-color: #f5f5f5;
-    color: #222;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+body.light-mode input[type="text"] {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #03dac6;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode button,
+body.light-mode #mic-button {
+  border: none;
+  box-shadow: none;
+}
+
+body.light-mode select {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #03dac6;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+}
+
+body.light-mode #chat-container {
+  margin-top: 20px;
+  background-color: #eaeaea;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .user-message {
+  background-color: #007bff;
+  color: #fff;
+}
+
+body.light-mode .bot-message {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+body.light-mode #mic-button.recording {
+  background-color: red;
+}
+
+/* === BASE DARK THEME === */
+body {
+  background-color: #121212;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+#chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* === CONTROLS AREA (Toggle + Voice Dropdown) === */
+.controls {
+  display: flex;
+  justify-content: center; /* Center toggle and dropdown */
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+/* === Voice Dropdown === */
+select {
+  height: 50px; /* Slightly smaller */
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  border: 1px solid #03dac6;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  padding-right: 40px;
+}
+select:focus {
+  outline: none;
+  border-color: #03dac6;
+  box-shadow: 0 0 8px rgba(3, 218, 198, 0.5);
+}
+
+/* === CHAT MESSAGES === */
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.message {
+  max-width: 35%;
+  margin-left: 20%;
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+  background-color: #2962ff;
+  color: white;
+  margin-left: auto;
+  margin-right: 20%;
+  text-align: right;
+  animation: slideInRight 0.3s ease;
+}
+
+.bot-message {
+  background-color: #2a2a2a;
+  color: #eee;
+  margin-right: auto;
+  text-align: left;
+  animation: slideInLeft 0.3s ease;
+}
+/* === LISTENING INDICATOR (While user is speaking) === */
+#listening-indicator {
+  background-color: #2a2a2a;
+  color: #03dac6; /* Teal text color */
+  border: 1px dashed #03dac6; /* Dashed teal border */
+  padding: 1rem 1.5rem;
+  border-radius: 18px;
+  font-size: 1rem;
+  margin: 1rem auto;
+  width: fit-content;
+  animation: pulse 1.5s infinite;
+}
+/* Fade out effect */
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+
+/* Subtle pulsing animation for Listening bubble */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+
+/* === INPUT AREA (Input + Buttons) === */
+.input-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center; /* Center input + buttons */
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.input-wrapper {
+  width: 50%; /* Input takes 50% width */
+  display: flex;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 60px;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  box-sizing: border-box;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #03dac6;
+  box-shadow: 0 0 8px rgba(3, 218, 198, 0.5);
+}
+
+/* === BUTTONS === */
+button, #mic-button {
+  height: 60px;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  background-color: #03dac6;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover, #mic-button:hover {
+  background-color: #018786;
+  transform: scale(1.05);
+}
+
+#mic-button {
+  background-color: #444;
+  color: white;
+}
+
+#mic-button.recording {
+  background-color: red;
+}
+
+/* === Toggle Theme (Checkbox) === */
+#toggle-theme {
+  transform: scale(1.2);
+}
+
+/* === AUDIO BUTTON === */
+.audio-button {
+  background: none;
+  border: none;
+  color: #03dac6;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+/* === ANIMATIONS === */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
   }
-  
-  body.light-mode input[type="text"] {
-    background-color: #fff;
-    color: #000;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  body.light-mode #chat-container {
-    background-color: #eaeaea;
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
   }
-  
-  body.light-mode .user-message {
-    background-color: #007bff;
-    color: #fff;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  body.light-mode .bot-message {
-    background-color: #f0f0f0;
-    color: #222;
-  }
-  
-  body.light-mode #mic-button {
-    background-color: #888;
-    color: #fff;
-  }
-  
-  body.light-mode #mic-button.recording {
-    background-color: red;
-  }
-  
-  /* === BASE DARK THEME === */
-  body {
-    background-color: #121212;
-    color: #f0f0f0;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    padding: 2rem;
-    margin: 0;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  #chat-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #1e1e1e;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  }
-  
-  /* === CHAT MESSAGES === */
-  .message-row {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-  }
-  
-  .message {
-    max-width: 70%;
-    padding: 0.75rem 1rem;
-    border-radius: 16px;
-    font-size: 1rem;
-    line-height: 1.5;
-    word-break: break-word;
-  }
-  
-  .user-message {
-    background-color: #2962ff;
-    color: white;
-    margin-left: auto;
-    text-align: right;
-  }
-  
-  .bot-message {
-    background-color: #2a2a2a;
-    color: #eee;
-    margin-right: auto;
-    text-align: left;
-  }
-  
-  /* === INPUTS AND BUTTONS === */
-  input[type="text"] {
-    width: 60%;
-    padding: 0.75rem;
-    border-radius: 8px;
-    border: none;
-    margin-right: 0.5rem;
-    font-size: 1rem;
-    background-color: #2c2c2c;
-    color: #f0f0f0;
-  }
-  
-  button {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background-color: #03dac6;
-    color: #000;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  button:hover {
-    background-color: #018786;
-  }
-  
-  /* === MIC BUTTON === */
-  #mic-button {
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 0.6rem 0.8rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #mic-button.recording {
-    background-color: red;
-  }
-  
-  /* === DROPDOWNS AND TOGGLE === */
-  select {
-    padding: 0.5rem;
-    margin-left: 0.5rem;
-    border-radius: 6px;
-    background-color: #fff;
-    color: #000;
-  }
-  
-  #toggle-theme {
-    margin-right: 1rem;
-  }
-  
-  /* === AUDIO BUTTON === */
-  .audio-button {
-    background: none;
-    border: none;
-    color: #03dac6;
-    cursor: pointer;
-    font-size: 1.2rem;
-    margin-left: 0.5rem;
-  }
-  
+}
