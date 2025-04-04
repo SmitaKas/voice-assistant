@@ -1,5 +1,12 @@
 # 🎙️ AI Voice Assistant
 
+# Voice Assistant 🎤
+
+![Built with Flask](https://img.shields.io/badge/Built%20with-Flask-000000?style=for-the-badge&logo=flask)
+![Powered by Hugging Face](https://img.shields.io/badge/Powered%20by-HuggingFace-yellow?style=for-the-badge&logo=huggingface)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+
+
 An interactive browser-based voice assistant built with Flask, JavaScript, and Hugging Face AI models. Speak or type to ask anything — get intelligent responses with speech and text output!
 
 ![screenshot](static/demo-screenshot.png) <!-- Optional: Replace with an actual screenshot -->
