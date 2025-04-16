@@ -20,13 +20,6 @@ An interactive browser-based voice assistant built with Flask, JavaScript, and H
 - 🔊 Text-to-speech with VITS (espnet)
 - 🌓 Light/Dark mode toggle with custom switch
 - 🎨 Stylish and responsive frontend
-
----
-
-## 🚀 Live Demo
-
-> _(Optional: Add a link if hosted on Replit, Hugging Face Spaces, etc.)_
-
 ---
 
 ## 🛠️ Setup Instructions
